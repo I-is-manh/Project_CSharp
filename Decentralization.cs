@@ -10,6 +10,7 @@ namespace Project_CSharp
     {
         private static bool isAdmin;
         private static int  mabn;
+        private static int mabs;
         public void setisAdmin(bool check)
         {
             isAdmin = check;
@@ -25,6 +26,14 @@ namespace Project_CSharp
         public int getmabn()
         {
             return mabn;
+        }
+        public void setmabs(int mabss)
+        {
+            mabs = mabss;
+        }
+        public int getmabs()
+        {
+            return mabs;
         }
     }
 }

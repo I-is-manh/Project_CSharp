@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             this.btn__info__reset = new System.Windows.Forms.Button();
-            this.txtsophong = new System.Windows.Forms.TextBox();
             this.txtbenhly = new System.Windows.Forms.TextBox();
             this.txtsdt = new System.Windows.Forms.TextBox();
-            this.txtngnv = new System.Windows.Forms.TextBox();
-            this.txtngsi = new System.Windows.Forms.TextBox();
             this.txtnamebn = new System.Windows.Forms.TextBox();
             this.txtmabn = new System.Windows.Forms.TextBox();
             this.btn__info__add = new System.Windows.Forms.Button();
@@ -45,6 +42,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtngsi = new System.Windows.Forms.MaskedTextBox();
+            this.txtngnv = new System.Windows.Forms.MaskedTextBox();
+            this.txtsophong = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btn__info__reset
@@ -56,15 +56,6 @@
             this.btn__info__reset.Text = "Reset";
             this.btn__info__reset.UseVisualStyleBackColor = true;
             this.btn__info__reset.Click += new System.EventHandler(this.btn__info__reset_Click);
-            // 
-            // txtsophong
-            // 
-            this.txtsophong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtsophong.Location = new System.Drawing.Point(214, 303);
-            this.txtsophong.Multiline = true;
-            this.txtsophong.Name = "txtsophong";
-            this.txtsophong.Size = new System.Drawing.Size(161, 27);
-            this.txtsophong.TabIndex = 33;
             // 
             // txtbenhly
             // 
@@ -84,24 +75,6 @@
             this.txtsdt.Size = new System.Drawing.Size(161, 27);
             this.txtsdt.TabIndex = 31;
             // 
-            // txtngnv
-            // 
-            this.txtngnv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtngnv.Location = new System.Drawing.Point(586, 176);
-            this.txtngnv.Multiline = true;
-            this.txtngnv.Name = "txtngnv";
-            this.txtngnv.Size = new System.Drawing.Size(161, 27);
-            this.txtngnv.TabIndex = 30;
-            // 
-            // txtngsi
-            // 
-            this.txtngsi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtngsi.Location = new System.Drawing.Point(214, 177);
-            this.txtngsi.Multiline = true;
-            this.txtngsi.Name = "txtngsi";
-            this.txtngsi.Size = new System.Drawing.Size(161, 27);
-            this.txtngsi.TabIndex = 29;
-            // 
             // txtnamebn
             // 
             this.txtnamebn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -110,6 +83,7 @@
             this.txtnamebn.Name = "txtnamebn";
             this.txtnamebn.Size = new System.Drawing.Size(161, 27);
             this.txtnamebn.TabIndex = 28;
+            this.txtnamebn.Validating += new System.ComponentModel.CancelEventHandler(this.checkname);
             // 
             // txtmabn
             // 
@@ -122,6 +96,7 @@
             // 
             // btn__info__add
             // 
+            this.btn__info__add.Enabled = false;
             this.btn__info__add.Location = new System.Drawing.Point(287, 374);
             this.btn__info__add.Name = "btn__info__add";
             this.btn__info__add.Size = new System.Drawing.Size(88, 45);
@@ -210,17 +185,44 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Thêm bệnh nhân";
             // 
+            // txtngsi
+            // 
+            this.txtngsi.Location = new System.Drawing.Point(213, 177);
+            this.txtngsi.Mask = "00/00/0000";
+            this.txtngsi.Name = "txtngsi";
+            this.txtngsi.Size = new System.Drawing.Size(162, 22);
+            this.txtngsi.TabIndex = 36;
+            this.txtngsi.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtngnv
+            // 
+            this.txtngnv.Location = new System.Drawing.Point(586, 176);
+            this.txtngnv.Mask = "00/00/0000";
+            this.txtngnv.Name = "txtngnv";
+            this.txtngnv.Size = new System.Drawing.Size(161, 22);
+            this.txtngnv.TabIndex = 37;
+            this.txtngnv.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtsophong
+            // 
+            this.txtsophong.FormattingEnabled = true;
+            this.txtsophong.Location = new System.Drawing.Point(213, 299);
+            this.txtsophong.Name = "txtsophong";
+            this.txtsophong.Size = new System.Drawing.Size(162, 24);
+            this.txtsophong.TabIndex = 38;
+            // 
             // FormAddBn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(852, 487);
-            this.Controls.Add(this.btn__info__reset);
             this.Controls.Add(this.txtsophong);
-            this.Controls.Add(this.txtbenhly);
-            this.Controls.Add(this.txtsdt);
             this.Controls.Add(this.txtngnv);
             this.Controls.Add(this.txtngsi);
+            this.Controls.Add(this.btn__info__reset);
+            this.Controls.Add(this.txtbenhly);
+            this.Controls.Add(this.txtsdt);
             this.Controls.Add(this.txtnamebn);
             this.Controls.Add(this.txtmabn);
             this.Controls.Add(this.btn__info__add);
@@ -236,6 +238,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAddBn";
             this.Load += new System.EventHandler(this.FormAddBn_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.checkvalidate);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,11 +247,8 @@
         #endregion
 
         private System.Windows.Forms.Button btn__info__reset;
-        private System.Windows.Forms.TextBox txtsophong;
         private System.Windows.Forms.TextBox txtbenhly;
         private System.Windows.Forms.TextBox txtsdt;
-        private System.Windows.Forms.TextBox txtngnv;
-        private System.Windows.Forms.TextBox txtngsi;
         private System.Windows.Forms.TextBox txtnamebn;
         private System.Windows.Forms.TextBox txtmabn;
         private System.Windows.Forms.Button btn__info__add;
@@ -260,5 +260,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox txtngsi;
+        private System.Windows.Forms.MaskedTextBox txtngnv;
+        private System.Windows.Forms.ComboBox txtsophong;
     }
 }

@@ -25,7 +25,10 @@ namespace Project_CSharp
             if (dc.getisAdmin() == false)
             {
                 tvql.Nodes.RemoveAt(1);
-                tvql.Nodes.RemoveAt(4);
+                tvql.Nodes.RemoveAt(1);
+                tvql.Nodes.RemoveAt(1);
+                tvql.Nodes.RemoveAt(1);
+                tvql.Nodes.RemoveAt(2);
             }
         }
 
@@ -48,13 +51,43 @@ namespace Project_CSharp
                
                 addformtopanel(bn);
             }
+            else if(e.Node.Text == "Quản lý bác sĩ")
+            {
+                FormNhanVien fnv = new FormNhanVien();
+                addformtopanel(fnv);
+            }
+            else if (e.Node.Text == "Quản lý thuốc")
+            {
+                FormThuoc thuoc  = new FormThuoc();
+                addformtopanel(thuoc);
+            }
+            else if(e.Node.Text == "Quản lý dịch vụ")
+            {
+                FormDichVu dv = new FormDichVu();
+                addformtopanel(dv);
+            }
+            else if (e.Node.Text == "Quản lý phòng khám")
+            {
+                FormPhongKham pk  = new FormPhongKham();
+                addformtopanel(pk);
+            }
+            else if(e.Node.Text == "Quản lý hóa đơn")
+            {
+                FormHoaDon hd = new FormHoaDon();
+                addformtopanel(hd);
+            }
+            else if(e.Node.Text == "Quản lý tài khoản")
+            {
+                FormTK tk = new FormTK();
+                addformtopanel(tk);
+            }
             
         }
         void addformtopanel(Form form)
         {
             if(form == null)
             {
-                MessageBox.Show("Không có thông tin bảng bệnh nhân","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Không có data","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
             else
@@ -63,14 +96,13 @@ namespace Project_CSharp
                 {
                     panelForm.Controls.RemoveAt(0);
                 }
-                FormBn formBn = new FormBn();
-                formBn.TopLevel = false;
-                formBn.FormBorderStyle = FormBorderStyle.None;
-                panelForm.Tag = formBn;
-                formBn.AutoSizeMode = AutoSizeMode.GrowOnly;
-                formBn.BringToFront();
-                formBn.Show();
-                panelForm.Controls.Add(formBn);
+                form.TopLevel = false;
+                form.FormBorderStyle = FormBorderStyle.None;
+                panelForm.Tag = form;
+                form.AutoSizeMode = AutoSizeMode.GrowOnly;
+                form.BringToFront();
+                form.Show();
+                panelForm.Controls.Add(form);
             }
         }
         void Closed()

@@ -15,11 +15,12 @@ namespace Project_CSharp
     {
         string str = "Data Source=BING-CHILLING;Initial Catalog=SQLProject;Integrated Security=True";
         Decentralization dc = new Decentralization();
+        public delegate void HandleUpdate(string str);
+        public HandleUpdate prop;
         public FormInfoBN()
         {
             InitializeComponent();
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -28,6 +29,7 @@ namespace Project_CSharp
         private void FormInfoBN_Load(object sender, EventArgs e)
         {
             loaddata();
+            loadtocombobox();
         }
         public void loaddata()
         {
@@ -57,7 +59,19 @@ namespace Project_CSharp
             cmd.Dispose();
             conn.Close();
         }
-
+        public void loadtocombobox()
+        {
+            SqlConnection conn  = new SqlConnection(str);   
+            SqlCommand cmd = conn.CreateCommand ();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select iSoPhong from tblPhongKham";
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = cmd;
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+            txtsophong.DataSource = ds.Tables[0];
+            txtsophong.DisplayMember = "iSoPhong";
+        }
         private void btn__info__reset_Click(object sender, EventArgs e)
         {
             Random random = new Random();
@@ -73,7 +87,15 @@ namespace Project_CSharp
             cmd.CommandText = $"update tblBenhNhan set sHoTenBN = N'{txtnamebn.Text}',dNgaySinh = '{DateTime.Parse(txtngsi.Text).ToString("yyyy/MM/dd")}',dNgayNhapVien = '{DateTime.Parse(txtngnv.Text).ToString("yyyy/MM/dd")}',sBenh = N'{txtbenhly.Text}',iSoPhong = '{txtsophong.Text}' where iMaBN= {txtmabn.Text}";
             conn.Open();
             var i =cmd.ExecuteNonQuery();
-            MessageBox.Show(i.ToString());
+            if(int.Parse(i.ToString()) == 1)
+            {
+                MessageBox.Show("Sửa thành công");
+                prop("");
+            }
+            else
+            {
+                MessageBox.Show("Sửa thất bại");
+            }
             cmd.Dispose();
             conn.Close();
         }

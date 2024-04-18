@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Thêm bệnh nhân");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Quản lý bệnh nhân", new System.Windows.Forms.TreeNode[] {
-            treeNode25});
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Quản lý nhân viên");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Quản lý phòng khám");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Quản lý thuốc");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Quản lý dịch vụ");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Quản lý tài khoản");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Đăng xuất");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Quản lý bệnh nhân");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Quản lý bác sĩ");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Quản lý phòng khám");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Quản lý thuốc");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Quản lý dịch vụ");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Quản lý hóa đơn");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Quản lý tài khoản");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Đăng xuất");
             this.tvql = new System.Windows.Forms.TreeView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelForm = new System.Windows.Forms.Panel();
@@ -50,30 +49,31 @@
             this.tvql.ItemHeight = 55;
             this.tvql.Location = new System.Drawing.Point(12, 155);
             this.tvql.Name = "tvql";
-            treeNode25.Name = "qlbn_add";
-            treeNode25.Text = "Thêm bệnh nhân";
-            treeNode26.Name = "n1_qlbn";
-            treeNode26.Text = "Quản lý bệnh nhân";
-            treeNode27.Name = "n2_qlbs";
-            treeNode27.Text = "Quản lý nhân viên";
-            treeNode28.Name = "n3_qlpk";
-            treeNode28.Text = "Quản lý phòng khám";
-            treeNode29.Name = "n4_qlthuoc";
-            treeNode29.Text = "Quản lý thuốc";
-            treeNode30.Name = "n5_qldv";
-            treeNode30.Text = "Quản lý dịch vụ";
-            treeNode31.Name = "n7_qltk";
-            treeNode31.Text = "Quản lý tài khoản";
-            treeNode32.Name = "n6_dx";
-            treeNode32.Text = "Đăng xuất";
+            treeNode1.Name = "n1_qlbn";
+            treeNode1.Text = "Quản lý bệnh nhân";
+            treeNode2.Name = "n2_qlbs";
+            treeNode2.Text = "Quản lý bác sĩ";
+            treeNode3.Name = "n3_qlpk";
+            treeNode3.Text = "Quản lý phòng khám";
+            treeNode4.Name = "n4_qlthuoc";
+            treeNode4.Text = "Quản lý thuốc";
+            treeNode5.Name = "n5_qldv";
+            treeNode5.Text = "Quản lý dịch vụ";
+            treeNode6.Name = "n6_qlhd";
+            treeNode6.Text = "Quản lý hóa đơn";
+            treeNode7.Name = "n7_qltk";
+            treeNode7.Text = "Quản lý tài khoản";
+            treeNode8.Name = "n6_dx";
+            treeNode8.Text = "Đăng xuất";
             this.tvql.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode26,
-            treeNode27,
-            treeNode28,
-            treeNode29,
-            treeNode30,
-            treeNode31,
-            treeNode32});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.tvql.ShowLines = false;
             this.tvql.ShowRootLines = false;
             this.tvql.Size = new System.Drawing.Size(244, 579);
@@ -106,7 +106,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1126, 745);
+            this.ClientSize = new System.Drawing.Size(1120, 738);
             this.Controls.Add(this.tvql);
             this.Controls.Add(this.panelForm);
             this.Controls.Add(this.pictureBox1);

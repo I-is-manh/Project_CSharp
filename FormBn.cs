@@ -50,12 +50,6 @@ namespace Project_CSharp
         {
             DataGridViewRow row = dgvbn.Rows[e.RowIndex];
             dc.setmabn(int.Parse(row.Cells["mabn"].Value.ToString()));
-            if (e.ColumnIndex == 0)
-            {
-                FormInfoBN bn = new FormInfoBN();
-                bn.ShowDialog();
-            }
-            
             tmabn.Text = row.Cells["mabn"].Value.ToString();
             tnamebn.Text = row.Cells["namebn"].Value.ToString();
             DateTime date = DateTime.Parse(row.Cells["dngaynv"].Value.ToString());
@@ -63,16 +57,29 @@ namespace Project_CSharp
             tdaynv.Text = day;
             tbenhly.Text = row.Cells["benhly"].Value.ToString();
             tsophong.Text = row.Cells["sophong"].Value.ToString();
+            if (e.ColumnIndex == 0)
+            {
+                FormInfoBN bn = new FormInfoBN();
+                bn.ShowDialog();
+            }
+            else if (e.ColumnIndex == 1)
+            {
+                FormLapHoaDon lhd = new FormLapHoaDon(tmabn.Text,tnamebn.Text,tdaynv.Text,tbenhly.Text,tsophong.Text);
+                lhd.ShowDialog();
+            }
+           
         }
         private void btnadd_Click(object sender, EventArgs e)
         {
             FormAddBn addbn = new FormAddBn();
+            addbn.prop = new FormAddBn.HandleDelegate(loadData);
             addbn.ShowDialog();
         }
 
         private void btnsua_Click(object sender, EventArgs e)
         {
             FormInfoBN bn = new FormInfoBN();
+            bn.prop = new FormInfoBN.HandleUpdate(loadData);
             bn.ShowDialog();
         }
 
@@ -99,15 +106,21 @@ namespace Project_CSharp
                 MessageBox.Show("Bạn không thể xóa vì có liên quan tới khóa ngoại","Oops",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
+        public bool check (string str)
+        {
 
+            return false;
+        }
         private void btntimkiem_Click(object sender, EventArgs e)
         {
             string filter = "iMaBN IS NOT NULL and ";
             filter += string.Format("CONVERT({0}, System.String) like '%{1}%'",
                              "iMaBN", tmabn.Text);
+            string daynv = tdaynv.Text.Replace("-", "/");
+
             filter += $" and sHoTenBN like \'%{tnamebn.Text.Trim()}%\' and ";
             filter += string.Format("CONVERT({0}, System.String) like '%{1}%'",
-                             "dNgayNhapVien", tdaynv.Text);
+                              "dNgayNhapVien", daynv);
             filter += $" and sBenh like \'%{tbenhly.Text.Trim()}%\' and ";
             filter += string.Format("CONVERT({0}, System.String) like '%{1}%'",
                              "iSoPhong", tsophong.Text);

@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             this.btn__info__update = new System.Windows.Forms.Button();
-            this.txtsophong = new System.Windows.Forms.TextBox();
             this.txtbenhly = new System.Windows.Forms.TextBox();
             this.txtsdt = new System.Windows.Forms.TextBox();
-            this.txtngnv = new System.Windows.Forms.TextBox();
-            this.txtngsi = new System.Windows.Forms.TextBox();
             this.txtnamebn = new System.Windows.Forms.TextBox();
             this.txtmabn = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,6 +41,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtngsi = new System.Windows.Forms.MaskedTextBox();
+            this.txtngnv = new System.Windows.Forms.MaskedTextBox();
+            this.txtsophong = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btn__info__update
@@ -55,15 +55,6 @@
             this.btn__info__update.Text = "Sửa";
             this.btn__info__update.UseVisualStyleBackColor = true;
             this.btn__info__update.Click += new System.EventHandler(this.btn__info__update_Click);
-            // 
-            // txtsophong
-            // 
-            this.txtsophong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtsophong.Location = new System.Drawing.Point(255, 280);
-            this.txtsophong.Multiline = true;
-            this.txtsophong.Name = "txtsophong";
-            this.txtsophong.Size = new System.Drawing.Size(161, 27);
-            this.txtsophong.TabIndex = 15;
             // 
             // txtbenhly
             // 
@@ -82,24 +73,6 @@
             this.txtsdt.Name = "txtsdt";
             this.txtsdt.Size = new System.Drawing.Size(161, 27);
             this.txtsdt.TabIndex = 13;
-            // 
-            // txtngnv
-            // 
-            this.txtngnv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtngnv.Location = new System.Drawing.Point(627, 153);
-            this.txtngnv.Multiline = true;
-            this.txtngnv.Name = "txtngnv";
-            this.txtngnv.Size = new System.Drawing.Size(161, 27);
-            this.txtngnv.TabIndex = 12;
-            // 
-            // txtngsi
-            // 
-            this.txtngsi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtngsi.Location = new System.Drawing.Point(255, 154);
-            this.txtngsi.Multiline = true;
-            this.txtngsi.Name = "txtngsi";
-            this.txtngsi.Size = new System.Drawing.Size(161, 27);
-            this.txtngsi.TabIndex = 11;
             // 
             // txtnamebn
             // 
@@ -201,17 +174,44 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Mã bệnh nhân";
             // 
+            // txtngsi
+            // 
+            this.txtngsi.Location = new System.Drawing.Point(255, 154);
+            this.txtngsi.Mask = "00/00/0000";
+            this.txtngsi.Name = "txtngsi";
+            this.txtngsi.Size = new System.Drawing.Size(161, 22);
+            this.txtngsi.TabIndex = 17;
+            this.txtngsi.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtngnv
+            // 
+            this.txtngnv.Location = new System.Drawing.Point(627, 153);
+            this.txtngnv.Mask = "00/00/0000";
+            this.txtngnv.Name = "txtngnv";
+            this.txtngnv.Size = new System.Drawing.Size(161, 22);
+            this.txtngnv.TabIndex = 18;
+            this.txtngnv.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtsophong
+            // 
+            this.txtsophong.FormattingEnabled = true;
+            this.txtsophong.Location = new System.Drawing.Point(255, 279);
+            this.txtsophong.Name = "txtsophong";
+            this.txtsophong.Size = new System.Drawing.Size(161, 24);
+            this.txtsophong.TabIndex = 19;
+            // 
             // FormInfoBN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(921, 494);
-            this.Controls.Add(this.btn__info__update);
             this.Controls.Add(this.txtsophong);
-            this.Controls.Add(this.txtbenhly);
-            this.Controls.Add(this.txtsdt);
             this.Controls.Add(this.txtngnv);
             this.Controls.Add(this.txtngsi);
+            this.Controls.Add(this.btn__info__update);
+            this.Controls.Add(this.txtbenhly);
+            this.Controls.Add(this.txtsdt);
             this.Controls.Add(this.txtnamebn);
             this.Controls.Add(this.txtmabn);
             this.Controls.Add(this.label8);
@@ -234,11 +234,8 @@
         #endregion
 
         private System.Windows.Forms.Button btn__info__update;
-        private System.Windows.Forms.TextBox txtsophong;
         private System.Windows.Forms.TextBox txtbenhly;
         private System.Windows.Forms.TextBox txtsdt;
-        private System.Windows.Forms.TextBox txtngnv;
-        private System.Windows.Forms.TextBox txtngsi;
         private System.Windows.Forms.TextBox txtnamebn;
         private System.Windows.Forms.TextBox txtmabn;
         private System.Windows.Forms.Label label1;
@@ -249,5 +246,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MaskedTextBox txtngsi;
+        private System.Windows.Forms.MaskedTextBox txtngnv;
+        private System.Windows.Forms.ComboBox txtsophong;
     }
 }

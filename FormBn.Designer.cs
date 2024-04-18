@@ -36,12 +36,12 @@
             this.benhly = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sophong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lahd = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tmabn = new System.Windows.Forms.TextBox();
-            this.tdaynv = new System.Windows.Forms.TextBox();
             this.tnamebn = new System.Windows.Forms.TextBox();
             this.tbenhly = new System.Windows.Forms.TextBox();
             this.btnadd = new System.Windows.Forms.Button();
@@ -51,6 +51,7 @@
             this.btntimkiem = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.tsophong = new System.Windows.Forms.TextBox();
+            this.tdaynv = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvbn)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +74,8 @@
             this.dngaynv,
             this.benhly,
             this.sophong,
-            this.btn});
+            this.btn,
+            this.lahd});
             this.dgvbn.Location = new System.Drawing.Point(12, 331);
             this.dgvbn.Name = "dgvbn";
             this.dgvbn.RowHeadersWidth = 51;
@@ -132,6 +134,15 @@
             this.btn.UseColumnTextForButtonValue = true;
             this.btn.Width = 125;
             // 
+            // lahd
+            // 
+            this.lahd.HeaderText = "Lập hóa đơn";
+            this.lahd.MinimumWidth = 6;
+            this.lahd.Name = "lahd";
+            this.lahd.Text = "Lập hóa đơn";
+            this.lahd.UseColumnTextForButtonValue = true;
+            this.lahd.Width = 125;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -178,13 +189,6 @@
             this.tmabn.Name = "tmabn";
             this.tmabn.Size = new System.Drawing.Size(201, 22);
             this.tmabn.TabIndex = 6;
-            // 
-            // tdaynv
-            // 
-            this.tdaynv.Location = new System.Drawing.Point(216, 151);
-            this.tdaynv.Name = "tdaynv";
-            this.tdaynv.Size = new System.Drawing.Size(201, 22);
-            this.tdaynv.TabIndex = 7;
             // 
             // tnamebn
             // 
@@ -271,12 +275,20 @@
             this.tsophong.Size = new System.Drawing.Size(201, 22);
             this.tsophong.TabIndex = 17;
             // 
+            // tdaynv
+            // 
+            this.tdaynv.Location = new System.Drawing.Point(216, 150);
+            this.tdaynv.Name = "tdaynv";
+            this.tdaynv.Size = new System.Drawing.Size(201, 22);
+            this.tdaynv.TabIndex = 18;
+            // 
             // FormBn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(854, 752);
+            this.Controls.Add(this.tdaynv);
             this.Controls.Add(this.tsophong);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btntimkiem);
@@ -286,7 +298,6 @@
             this.Controls.Add(this.btnadd);
             this.Controls.Add(this.tbenhly);
             this.Controls.Add(this.tnamebn);
-            this.Controls.Add(this.tdaynv);
             this.Controls.Add(this.tmabn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -312,7 +323,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tmabn;
-        private System.Windows.Forms.TextBox tdaynv;
         private System.Windows.Forms.TextBox tnamebn;
         private System.Windows.Forms.TextBox tbenhly;
         private System.Windows.Forms.Label label3;
@@ -323,11 +333,13 @@
         private System.Windows.Forms.Button btntimkiem;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tsophong;
+        private System.Windows.Forms.TextBox tdaynv;
         private System.Windows.Forms.DataGridViewTextBoxColumn mabn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namebn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dngaynv;
         private System.Windows.Forms.DataGridViewTextBoxColumn benhly;
         private System.Windows.Forms.DataGridViewTextBoxColumn sophong;
         private System.Windows.Forms.DataGridViewButtonColumn btn;
+        private System.Windows.Forms.DataGridViewButtonColumn lahd;
     }
 }
